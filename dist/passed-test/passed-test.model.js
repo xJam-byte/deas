@@ -9,11 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.PassedTest = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-let User = class User extends sequelize_typescript_1.Model {
+const child_model_1 = require("../child/child.model");
+const user_model_1 = require("../user/user.model");
+let PassedTest = class PassedTest extends sequelize_typescript_1.Model {
 };
-exports.User = User;
+exports.PassedTest = PassedTest;
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.INTEGER,
@@ -22,59 +24,45 @@ __decorate([
         primaryKey: true,
     }),
     __metadata("design:type", Number)
-], User.prototype, "user_id", void 0);
+], PassedTest.prototype, "test_id", void 0);
 __decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.User),
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
+        type: sequelize_typescript_1.DataType.INTEGER,
         allowNull: false,
     }),
-    __metadata("design:type", String)
-], User.prototype, "firstName", void 0);
+    __metadata("design:type", Number)
+], PassedTest.prototype, "parentId", void 0);
 __decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => user_model_1.User),
+    __metadata("design:type", user_model_1.User)
+], PassedTest.prototype, "user", void 0);
+__decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => child_model_1.Child),
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
+        type: sequelize_typescript_1.DataType.INTEGER,
         allowNull: false,
     }),
-    __metadata("design:type", String)
-], User.prototype, "lastName", void 0);
+    __metadata("design:type", Number)
+], PassedTest.prototype, "childId", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-        allowNull: false,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "patronymic", void 0);
-__decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-        allowNull: false,
-        unique: true,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
-__decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-        allowNull: false,
-        unique: true,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "phoneNumber", void 0);
-__decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-        allowNull: false,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
+    (0, sequelize_typescript_1.BelongsTo)(() => child_model_1.Child),
+    __metadata("design:type", child_model_1.Child)
+], PassedTest.prototype, "child", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.INTEGER,
         allowNull: false,
     }),
     __metadata("design:type", Number)
-], User.prototype, "children", void 0);
-exports.User = User = __decorate([
-    (0, sequelize_typescript_1.Table)({ tableName: "users" })
-], User);
-//# sourceMappingURL=user.model.js.map
+], PassedTest.prototype, "testPoints", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.TEXT,
+    }),
+    __metadata("design:type", String)
+], PassedTest.prototype, "notes", void 0);
+exports.PassedTest = PassedTest = __decorate([
+    (0, sequelize_typescript_1.Table)({ tableName: "passedtests" })
+], PassedTest);
+//# sourceMappingURL=passed-test.model.js.map

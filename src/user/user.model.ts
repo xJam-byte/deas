@@ -26,7 +26,7 @@ export class User extends Model<User> {
     type: DataType.STRING,
     allowNull: false,
   })
-  Patronymic: string;
+  patronymic: string;
 
   @Column({
     type: DataType.STRING,

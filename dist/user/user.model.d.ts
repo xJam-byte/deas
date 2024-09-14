@@ -3,7 +3,7 @@ export declare class User extends Model<User> {
     user_id: number;
     firstName: string;
     lastName: string;
-    Patronymic: string;
+    patronymic: string;
     email: string;
     phoneNumber: string;
     password: string;

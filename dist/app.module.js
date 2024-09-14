@@ -13,6 +13,10 @@ const sequelize_1 = require("@nestjs/sequelize");
 const user_module_1 = require("./user/user.module");
 const user_model_1 = require("./user/user.model");
 const auth_module_1 = require("./auth/auth.module");
+const child_module_1 = require("./child/child.module");
+const passed_test_module_1 = require("./passed-test/passed-test.module");
+const child_model_1 = require("./child/child.model");
+const passed_test_model_1 = require("./passed-test/passed-test.model");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,12 +36,14 @@ exports.AppModule = AppModule = __decorate([
                 username: process.env.DB_USER || "postgres",
                 password: process.env.DB_PASSWORD || "root",
                 database: process.env.DB_NAME || "Damm",
-                models: [user_model_1.User],
+                models: [user_model_1.User, child_model_1.Child, passed_test_model_1.PassedTest],
                 autoLoadModels: true,
                 synchronize: true,
             }),
             user_module_1.UserModule,
             auth_module_1.AuthModule,
+            child_module_1.ChildModule,
+            passed_test_module_1.PassedTestModule,
         ],
     })
 ], AppModule);

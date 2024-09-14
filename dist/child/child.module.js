@@ -6,12 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.ChildModule = void 0;
 const common_1 = require("@nestjs/common");
-let UserController = class UserController {
+const child_controller_1 = require("./child.controller");
+const child_service_1 = require("./child.service");
+const sequelize_1 = require("@nestjs/sequelize");
+const child_model_1 = require("./child.model");
+let ChildModule = class ChildModule {
 };
-exports.UserController = UserController;
-exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)("user")
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+exports.ChildModule = ChildModule;
+exports.ChildModule = ChildModule = __decorate([
+    (0, common_1.Module)({
+        controllers: [child_controller_1.ChildController],
+        providers: [child_service_1.ChildService],
+        imports: [sequelize_1.SequelizeModule.forFeature([child_model_1.Child])],
+    })
+], ChildModule);
+//# sourceMappingURL=child.module.js.map
