@@ -10,6 +10,10 @@ import {
 export class CreateChildDto {
   @IsString()
   @IsNotEmpty()
+  readonly parentId: number;
+
+  @IsString()
+  @IsNotEmpty()
   readonly firstName: string;
 
   @IsEmail()

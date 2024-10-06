@@ -8,6 +8,8 @@ import { ChildModule } from "./child/child.module";
 import { PassedTestModule } from "./passed-test/passed-test.module";
 import { Child } from "./child/child.model";
 import { PassedTest } from "./passed-test/passed-test.model";
+import { NoteModule } from "./note/note.module";
+import { Note } from "./note/note.model";
 
 @Module({
   controllers: [],
@@ -24,7 +26,7 @@ import { PassedTest } from "./passed-test/passed-test.model";
       username: process.env.DB_USER || "postgres",
       password: process.env.DB_PASSWORD || "root",
       database: process.env.DB_NAME || "Damm",
-      models: [User, Child, PassedTest],
+      models: [User, Child, PassedTest, Note],
       autoLoadModels: true,
       synchronize: true,
     }),
@@ -32,6 +34,7 @@ import { PassedTest } from "./passed-test/passed-test.model";
     AuthModule,
     ChildModule,
     PassedTestModule,
+    NoteModule,
   ],
 })
 export class AppModule {}
