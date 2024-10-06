@@ -41,4 +41,11 @@ export class NoteService {
       },
     });
   }
+  async getNotesByParent(parentId: number): Promise<Note[]> {
+    return await this.noteModel.findAll({
+      where: {
+        parentId,
+      },
+    });
+  }
 }

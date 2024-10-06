@@ -13,4 +13,10 @@ export class PassedTestService {
     const test = await this.testModel.create(passedTest);
     return test;
   }
+  async getPassedTestsByParent(parentId: number): Promise<PassedTest[]> {
+    return this.testModel.findAll({
+      where: { parentId },
+      include: [{ all: true }],
+    });
+  }
 }

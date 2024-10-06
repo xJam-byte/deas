@@ -40,4 +40,9 @@ export class NoteController {
   ) {
     return this.noteService.getNotesByChildAndParent(parentId, childId);
   }
+
+  @Get()
+  async getNotesByParent(@Query("parentId") parentId: number) {
+    return this.noteService.getNotesByParent(parentId);
+  }
 }

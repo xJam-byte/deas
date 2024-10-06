@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { PassedTestService } from "./passed-test.service";
 import PassTestDto from "./Dto/pass-test.dto";
 
@@ -9,5 +9,10 @@ export class PassedTestController {
   @Post("/submitTest")
   endTest(@Body() passedTest: PassTestDto) {
     return this.testService.submitTest(passedTest);
+  }
+
+  @Get()
+  async getPassedTestsByParent(@Query("parentId") parentId: number) {
+    return this.testService.getPassedTestsByParent(parentId);
   }
 }
