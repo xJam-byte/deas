@@ -29,4 +29,16 @@ export class NoteService {
     }
     await note.destroy();
   }
+
+  async getNotesByChildAndParent(
+    parentId: number,
+    childId: number
+  ): Promise<Note[]> {
+    return await this.noteModel.findAll({
+      where: {
+        parentId,
+        childId,
+      },
+    });
+  }
 }

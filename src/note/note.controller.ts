@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Param, Post, Put } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+} from "@nestjs/common";
 import { NoteService } from "./note.service";
 import { CreateNoteDto } from "./Dto/create.note.dto";
 
@@ -22,5 +31,13 @@ export class NoteController {
   @Delete(":id")
   async deleteNote(@Param("id") id: number) {
     return this.noteService.deleteNote(id);
+  }
+
+  @Get()
+  async getNotesByChildAndParent(
+    @Query("parentId") parentId: number,
+    @Query("childId") childId: number
+  ) {
+    return this.noteService.getNotesByChildAndParent(parentId, childId);
   }
 }
