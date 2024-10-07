@@ -7,6 +7,7 @@ import {
   Table,
 } from "sequelize-typescript";
 import { Child } from "src/child/child.model";
+import { Test } from "src/test/test.model";
 import { User } from "src/user/user.model";
 
 @Table({ tableName: "passedtests" })
@@ -17,7 +18,7 @@ export class PassedTest extends Model<PassedTest> {
     autoIncrement: true,
     primaryKey: true,
   })
-  test_id: number;
+  passed_test_id: number;
 
   @ForeignKey(() => User)
   @Column({
@@ -28,6 +29,16 @@ export class PassedTest extends Model<PassedTest> {
 
   @BelongsTo(() => User)
   user: User;
+
+  @ForeignKey(() => Test)
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  testId: number;
+
+  @BelongsTo(() => Test)
+  test: Test;
 
   @ForeignKey(() => Child)
   @Column({

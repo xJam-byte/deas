@@ -12,29 +12,22 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PassedTestService = void 0;
+exports.FeedbackService = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
-const passed_test_model_1 = require("./passed-test.model");
-let PassedTestService = class PassedTestService {
-    constructor(testModel) {
-        this.testModel = testModel;
+const feedback_model_1 = require("./feedback.model");
+let FeedbackService = class FeedbackService {
+    constructor(feedbackModel) {
+        this.feedbackModel = feedbackModel;
     }
-    async submitTest(passedTest) {
-        const test = await this.testModel.create(passedTest);
-        return test;
-    }
-    async getPassedTestsByParent(parentId) {
-        return this.testModel.findAll({
-            where: { parentId },
-            include: [{ all: true }],
-        });
+    async createFeedback(createFeedbackDto) {
+        return this.feedbackModel.create(createFeedbackDto);
     }
 };
-exports.PassedTestService = PassedTestService;
-exports.PassedTestService = PassedTestService = __decorate([
+exports.FeedbackService = FeedbackService;
+exports.FeedbackService = FeedbackService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, sequelize_1.InjectModel)(passed_test_model_1.PassedTest)),
+    __param(0, (0, sequelize_1.InjectModel)(feedback_model_1.Feedback)),
     __metadata("design:paramtypes", [Object])
-], PassedTestService);
-//# sourceMappingURL=passed-test.service.js.map
+], FeedbackService);
+//# sourceMappingURL=feedback.service.js.map

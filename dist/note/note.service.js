@@ -37,6 +37,21 @@ let NoteService = class NoteService {
         }
         await note.destroy();
     }
+    async getNotesByChildAndParent(parentId, childId) {
+        return await this.noteModel.findAll({
+            where: {
+                parentId,
+                childId,
+            },
+        });
+    }
+    async getNotesByParent(parentId) {
+        return await this.noteModel.findAll({
+            where: {
+                parentId,
+            },
+        });
+    }
 };
 exports.NoteService = NoteService;
 exports.NoteService = NoteService = __decorate([

@@ -6,4 +6,6 @@ export declare class NoteController {
     createNote(createNoteDto: CreateNoteDto): Promise<import("./note.model").Note>;
     updateNote(id: number, updateNoteDto: CreateNoteDto): Promise<import("./note.model").Note>;
     deleteNote(id: number): Promise<void>;
+    getNotesByChildAndParent(parentId: number, childId: number): Promise<import("./note.model").Note[]>;
+    getNotesByParent(parentId: number): Promise<import("./note.model").Note[]>;
 }

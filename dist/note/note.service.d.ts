@@ -6,4 +6,6 @@ export declare class NoteService {
     createNote(createNoteDto: CreateNoteDto): Promise<Note>;
     updateNote(id: number, updateNoteDto: CreateNoteDto): Promise<Note>;
     deleteNote(id: number): Promise<void>;
+    getNotesByChildAndParent(parentId: number, childId: number): Promise<Note[]>;
+    getNotesByParent(parentId: number): Promise<Note[]>;
 }

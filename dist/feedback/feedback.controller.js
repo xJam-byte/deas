@@ -12,29 +12,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PassedTestService = void 0;
+exports.FeedbackController = void 0;
 const common_1 = require("@nestjs/common");
-const sequelize_1 = require("@nestjs/sequelize");
-const passed_test_model_1 = require("./passed-test.model");
-let PassedTestService = class PassedTestService {
-    constructor(testModel) {
-        this.testModel = testModel;
+const feedback_service_1 = require("./feedback.service");
+const create_feedback_dto_1 = require("./Dto/create.feedback.dto");
+let FeedbackController = class FeedbackController {
+    constructor(feedbackService) {
+        this.feedbackService = feedbackService;
     }
-    async submitTest(passedTest) {
-        const test = await this.testModel.create(passedTest);
-        return test;
-    }
-    async getPassedTestsByParent(parentId) {
-        return this.testModel.findAll({
-            where: { parentId },
-            include: [{ all: true }],
-        });
+    async createFeedback(createFeedbackDto) {
+        return this.feedbackService.createFeedback(createFeedbackDto);
     }
 };
-exports.PassedTestService = PassedTestService;
-exports.PassedTestService = PassedTestService = __decorate([
-    (0, common_1.Injectable)(),
-    __param(0, (0, sequelize_1.InjectModel)(passed_test_model_1.PassedTest)),
-    __metadata("design:paramtypes", [Object])
-], PassedTestService);
-//# sourceMappingURL=passed-test.service.js.map
+exports.FeedbackController = FeedbackController;
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_feedback_dto_1.CreateFeedbackDto]),
+    __metadata("design:returntype", Promise)
+], FeedbackController.prototype, "createFeedback", null);
+exports.FeedbackController = FeedbackController = __decorate([
+    (0, common_1.Controller)("feedback"),
+    __metadata("design:paramtypes", [feedback_service_1.FeedbackService])
+], FeedbackController);
+//# sourceMappingURL=feedback.controller.js.map

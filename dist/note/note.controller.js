@@ -29,6 +29,12 @@ let NoteController = class NoteController {
     async deleteNote(id) {
         return this.noteService.deleteNote(id);
     }
+    async getNotesByChildAndParent(parentId, childId) {
+        return this.noteService.getNotesByChildAndParent(parentId, childId);
+    }
+    async getNotesByParent(parentId) {
+        return this.noteService.getNotesByParent(parentId);
+    }
 };
 exports.NoteController = NoteController;
 __decorate([
@@ -53,6 +59,21 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], NoteController.prototype, "deleteNote", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)("parentId")),
+    __param(1, (0, common_1.Query)("childId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "getNotesByChildAndParent", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)("parentId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "getNotesByParent", null);
 exports.NoteController = NoteController = __decorate([
     (0, common_1.Controller)("note"),
     __metadata("design:paramtypes", [note_service_1.NoteService])

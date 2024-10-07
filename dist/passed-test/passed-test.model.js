@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PassedTest = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const child_model_1 = require("../child/child.model");
+const test_model_1 = require("../test/test.model");
 const user_model_1 = require("../user/user.model");
 let PassedTest = class PassedTest extends sequelize_typescript_1.Model {
 };
@@ -24,7 +25,7 @@ __decorate([
         primaryKey: true,
     }),
     __metadata("design:type", Number)
-], PassedTest.prototype, "test_id", void 0);
+], PassedTest.prototype, "passed_test_id", void 0);
 __decorate([
     (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.User),
     (0, sequelize_typescript_1.Column)({
@@ -37,6 +38,18 @@ __decorate([
     (0, sequelize_typescript_1.BelongsTo)(() => user_model_1.User),
     __metadata("design:type", user_model_1.User)
 ], PassedTest.prototype, "user", void 0);
+__decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => test_model_1.Test),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.INTEGER,
+        allowNull: false,
+    }),
+    __metadata("design:type", Number)
+], PassedTest.prototype, "testId", void 0);
+__decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => test_model_1.Test),
+    __metadata("design:type", test_model_1.Test)
+], PassedTest.prototype, "test", void 0);
 __decorate([
     (0, sequelize_typescript_1.ForeignKey)(() => child_model_1.Child),
     (0, sequelize_typescript_1.Column)({

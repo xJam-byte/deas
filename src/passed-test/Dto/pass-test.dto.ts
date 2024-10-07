@@ -17,6 +17,10 @@ export default class PassTestDto {
 
   @IsNumber()
   @IsNotEmpty()
+  readonly testId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
   readonly testPoints: number;
 
   @IsString()

@@ -9,33 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateFeedbackDto = void 0;
 const class_validator_1 = require("class-validator");
-class PassTestDto {
+class CreateFeedbackDto {
 }
-exports.default = PassTestDto;
+exports.CreateFeedbackDto = CreateFeedbackDto;
 __decorate([
-    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsInt)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
-], PassTestDto.prototype, "parentId", void 0);
-__decorate([
-    (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
-], PassTestDto.prototype, "childId", void 0);
-__decorate([
-    (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
-], PassTestDto.prototype, "testId", void 0);
-__decorate([
-    (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
-], PassTestDto.prototype, "testPoints", void 0);
+], CreateFeedbackDto.prototype, "userId", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], PassTestDto.prototype, "notes", void 0);
-//# sourceMappingURL=pass-test.dto.js.map
+], CreateFeedbackDto.prototype, "feedbackText", void 0);
+//# sourceMappingURL=create.feedback.dto.js.map

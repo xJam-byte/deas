@@ -23,6 +23,9 @@ let PassedTestController = class PassedTestController {
     endTest(passedTest) {
         return this.testService.submitTest(passedTest);
     }
+    async getPassedTestsByParent(parentId) {
+        return this.testService.getPassedTestsByParent(parentId);
+    }
 };
 exports.PassedTestController = PassedTestController;
 __decorate([
@@ -32,6 +35,13 @@ __decorate([
     __metadata("design:paramtypes", [pass_test_dto_1.default]),
     __metadata("design:returntype", void 0)
 ], PassedTestController.prototype, "endTest", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)("parentId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], PassedTestController.prototype, "getPassedTestsByParent", null);
 exports.PassedTestController = PassedTestController = __decorate([
     (0, common_1.Controller)("passed-test"),
     __metadata("design:paramtypes", [passed_test_service_1.PassedTestService])
