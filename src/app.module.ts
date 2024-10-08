@@ -14,6 +14,8 @@ import { FeedbackModule } from "./feedback/feedback.module";
 import { Feedback } from "./feedback/feedback.model";
 import { TestModule } from "./test/test.module";
 import { Test } from "./test/test.model";
+import { DailyReportModule } from "./daily-report/daily-report.module";
+import { DailyReport } from "./daily-report/daily-report.model";
 
 @Module({
   controllers: [],
@@ -30,7 +32,7 @@ import { Test } from "./test/test.model";
       username: process.env.DB_USER || "postgres",
       password: process.env.DB_PASSWORD || "root",
       database: process.env.DB_NAME || "Damm",
-      models: [User, Child, PassedTest, Note, Feedback, Test],
+      models: [User, Child, PassedTest, Note, Feedback, Test, DailyReport],
       autoLoadModels: true,
       synchronize: true,
     }),
@@ -41,6 +43,7 @@ import { Test } from "./test/test.model";
     NoteModule,
     FeedbackModule,
     TestModule,
+    DailyReportModule,
   ],
 })
 export class AppModule {}

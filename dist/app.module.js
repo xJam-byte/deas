@@ -23,6 +23,8 @@ const feedback_module_1 = require("./feedback/feedback.module");
 const feedback_model_1 = require("./feedback/feedback.model");
 const test_module_1 = require("./test/test.module");
 const test_model_1 = require("./test/test.model");
+const daily_report_module_1 = require("./daily-report/daily-report.module");
+const daily_report_model_1 = require("./daily-report/daily-report.model");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -42,7 +44,7 @@ exports.AppModule = AppModule = __decorate([
                 username: process.env.DB_USER || "postgres",
                 password: process.env.DB_PASSWORD || "root",
                 database: process.env.DB_NAME || "Damm",
-                models: [user_model_1.User, child_model_1.Child, passed_test_model_1.PassedTest, note_model_1.Note, feedback_model_1.Feedback, test_model_1.Test],
+                models: [user_model_1.User, child_model_1.Child, passed_test_model_1.PassedTest, note_model_1.Note, feedback_model_1.Feedback, test_model_1.Test, daily_report_model_1.DailyReport],
                 autoLoadModels: true,
                 synchronize: true,
             }),
@@ -53,6 +55,7 @@ exports.AppModule = AppModule = __decorate([
             note_module_1.NoteModule,
             feedback_module_1.FeedbackModule,
             test_module_1.TestModule,
+            daily_report_module_1.DailyReportModule,
         ],
     })
 ], AppModule);
