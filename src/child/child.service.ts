@@ -10,4 +10,7 @@ export class ChildService {
   async createChild(dto: CreateChildDto) {
     return this.childModel.create(dto);
   }
+  async getByParent(id) {
+    return this.childModel.findOne({ where: { parentId: id } });
+  }
 }
